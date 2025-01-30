@@ -1,72 +1,187 @@
-/* Estilos básicos */
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ECE5DD; /* Color de fondo de WhatsApp */
     margin: 0;
     padding: 0;
+    color: #3C3C3C;
 }
 
+/* Estilos del header */
 header {
-    background-color: #333;
+    background-color: #128C7E; /* Verde oscuro de WhatsApp */
     color: white;
     padding: 15px;
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+/* Estilo de los botones de categoría */
 .category-menu {
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 15px auto;
+    width: fit-content;
 }
 
 .category-menu button {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #25D366; /* Verde principal de WhatsApp */
     color: white;
+    padding: 10px 15px;
     border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
 }
 
+.category-menu button:hover {
+    background-color: #1ebe57;
+}
+
+/* Contenedor de productos */
 .product-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    
+    padding: 20px;
 }
 
+/* Estilo de cada producto */
 .product {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    width: 200px;
+    background-color: rgb(252, 251, 251);
+    margin: 15px;
+    padding: 15px;
+    border: 3px solid #0e7a6d;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 220px;
     text-align: center;
-
 }
 
 .product img {
     width: 100%;
-    height: auto;
+    border-radius: 10px;
 }
 
-.cartIconContainer{
-    display: flex;
-    justify-content: center;
-}
-
-.cart {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    width: 300px;
-    
-}
-
-button {
-    background-color: #4CAF50;
+/* Botón de agregar al carrito */
+.product button {
+    background-color: #25D366;
     color: white;
-    padding: 10px;
+    padding: 8px;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.product button:hover {
+    background-color: #1ebe57;
+}
+
+/* Icono del carrito */
+#cartIconContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+#cartIconContainer i {
+    font-size: 24px;
+    color: #128C7E;
+}
+
+#cartItemCount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+/* Estilos del carrito */
+.cart {
+    background-color: white;
+    margin: 20px auto;
+    padding: 15px;
+    border: 3px solid #0e7a6d;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart h3 {
+    text-align: center;
+    color: #128C7E;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart ul li {
+    background-color: #f8f9fa;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart ul li div {
+    display: flex;
+    gap: 5px;
+}
+
+/* Botones del carrito */
+.cart button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.cart button:hover {
+    background-color: #1ebe57;
+}
+
+/* Botón de finalizar compra */
+#checkoutBtn {
+    display: block;
+    width: 100%;
+    background-color: #128C7E;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#checkoutBtn:hover {
+    background-color: #0e7a6d;
 }
