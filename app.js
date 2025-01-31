@@ -1,3 +1,4 @@
+// Array de productos
 const products = [
     { id: 1, name: 'Stevia', price: 10, category: 'categoria1', image: 'img_1.jpg' },
     { id: 2, name: 'Miel Orgánica', price: 20, category: 'categoria2', image: 'img_2.jpg' },
@@ -30,6 +31,14 @@ document.addEventListener('click', function (event) {
     if (event.target !== menu && event.target !== menuIcon) {
         menu.style.display = 'none';
     }
+});
+
+// Función para hacer scroll hacia la sección del carrito
+const cartIcon = document.getElementById('cartIcon');
+
+cartIcon.addEventListener('click', function() {
+    const cartSection = document.getElementById('cartSection');
+    cartSection.scrollIntoView({ behavior: 'smooth' }); // Esto hará un desplazamiento suave hacia el carrito
 });
 
 // Mostrar todos los productos al inicio
@@ -191,4 +200,3 @@ function finalizarCompra() {
 
     window.open(url, "_blank");
 }
-

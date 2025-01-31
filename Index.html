@@ -12,7 +12,6 @@
 <body>
 
 <header>
-
     <!-- Menú móvil con tres puntos -->
     <div class="menu-container">
         <i class="bi bi-three-dots-vertical" id="menuIcon"></i>
@@ -26,7 +25,7 @@
     <h1>Tienda Saludable</h1>
     <!-- Contenedor del carrito con el ícono y el contador -->
     <div id="cartIconContainer" style="position: relative; display: inline-block;">
-        <i class="bi bi-basket3" style="font-size: 30px; color: white;"></i> <!-- Ícono de carrito blanco -->
+        <i class="bi bi-basket3" style="font-size: 30px; color: white;" id="cartIcon"></i> <!-- Ícono de carrito blanco -->
         <span id="cartItemCount">0</span> <!-- Contador con fondo rojo y texto blanco -->
     </div>
 </header>
@@ -46,7 +45,7 @@
 
 <!-- Carrito -->
 <div class="cartIconContainer">
-    <div class="cart">
+    <div class="cart" id="cartSection">
         <h3>Carrito</h3>
         <ul id="cartItems">
             <!-- Los productos agregados aparecerán aquí -->
