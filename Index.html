@@ -2,28 +2,36 @@
 <html lang="es">
 <head>
     <meta name="description" content="Tienda Saludable ofrece una amplia variedad de productos naturales y veganos sin TACC para un estilo de vida saludable.">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Saludable</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
     <!-- Agregar Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
+
+    <!-- Menú móvil con tres puntos -->
+    <div class="menu-container">
+        <i class="bi bi-three-dots-vertical" id="menuIcon"></i>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <button onclick="filterProducts('categoria1')">Despensa</button>
+            <button onclick="filterProducts('categoria2')">Alimentos Naturales</button>
+            <button onclick="filterProducts('categoria3')">Vegano</button>
+            <button onclick="filterProducts('all')">Todas</button>
+        </div>
+    </div>
     <h1>Tienda Saludable</h1>
     <!-- Contenedor del carrito con el ícono y el contador -->
-<div id="cartIconContainer" style="position: relative; display: inline-block;">
-    <i class="bi bi-cart-fill" style="font-size: 30px;"></i>
-    <span id="cartItemCount" style="position: absolute; top: -10px; right: -10px; background-color: red; color: white; border-radius: 50%; padding: 5px 10px; font-size: 14px;">0</span>
-</div>
-
-
+    <div id="cartIconContainer" style="position: relative; display: inline-block;">
+        <i class="bi bi-basket3" style="font-size: 30px; color: white;"></i> <!-- Ícono de carrito blanco -->
+        <span id="cartItemCount">0</span> <!-- Contador con fondo rojo y texto blanco -->
+    </div>
 </header>
 
+<!-- Barra de categorías visible solo en pantallas grandes -->
 <div class="category-menu">
     <button onclick="filterProducts('categoria1')">Despensa</button>
     <button onclick="filterProducts('categoria2')">Alimentos Naturales</button>
@@ -31,11 +39,13 @@
     <button onclick="filterProducts('all')">Todas</button>
 </div>
 
+<!-- Contenedor de productos -->
 <div class="product-list" id="productList">
     <!-- Los productos se cargarán aquí dinámicamente -->
 </div>
-<div class="cartIconContainer">
 
+<!-- Carrito -->
+<div class="cartIconContainer">
     <div class="cart">
         <h3>Carrito</h3>
         <ul id="cartItems">
@@ -43,11 +53,10 @@
         </ul>
         <p><strong>Total: $<span id="total">0</span></strong></p>
         <button id="checkoutBtn" onclick="finalizarCompra()">Finalizar compra</button>
-    
     </div>
 </div>
-    
 
 <script src="app.js"></script> <!-- Enlace al archivo JS -->
 </body>
 </html>
+

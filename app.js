@@ -10,6 +10,28 @@ const products = [
 let cart = [];
 let total = 0;
 
+// Mostrar / ocultar el menú de categorías en móviles
+document.getElementById('menuIcon').addEventListener('click', function () {
+    const menu = document.getElementById('dropdownMenu');
+    
+    // Toggle el menú
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+});
+
+// Cerrar el menú si se hace clic fuera
+document.addEventListener('click', function (event) {
+    const menu = document.getElementById('dropdownMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (event.target !== menu && event.target !== menuIcon) {
+        menu.style.display = 'none';
+    }
+});
+
 // Mostrar todos los productos al inicio
 window.onload = () => {
     displayProducts(products);
@@ -169,3 +191,4 @@ function finalizarCompra() {
 
     window.open(url, "_blank");
 }
+

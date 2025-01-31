@@ -15,6 +15,93 @@ header {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Añadido para evitar que el menú lo cubra */
+}
+
+header h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+    text-align: left;
+}
+
+/* Contenedor del carrito siempre alineado a la derecha */
+#cartIconContainer {
+    position: absolute;
+    right: 20px; /* Alineado a la derecha */
+    top: 15px; /* Alineado al mismo nivel que el header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0;
+    z-index: 2; /* Asegura que el carrito esté por encima del menú desplegable */
+}
+
+#cartIconContainer i {
+    font-size: 24px;
+    color: white;
+}
+
+#cartItemCount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+/* Contenedor de menú tres puntos */
+.menu-container {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    z-index: 1; /* Asegura que el menú esté por debajo del carrito */
+}
+
+/* Icono de tres puntos */
+#menuIcon {
+    font-size: 24px;
+    color: white; /* Color blanco */
+}
+
+/* Estilo del menú desplegable */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 180px;
+    z-index: 1; /* Asegura que el menú se muestre por debajo del carrito */
+}
+
+/* Botones dentro del menú */
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    color: #0e7a6d;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Efecto hover */
+.dropdown-menu button:hover {
+    background-color: #f4f4f4;
 }
 
 /* Estilo de los botones de categoría */
@@ -86,37 +173,6 @@ header {
     background-color: #1ebe57;
 }
 
-/* Icono del carrito */
-#cartIconContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    margin: 10px auto;
-}
-
-#cartIconContainer i {
-    font-size: 24px;
-    color: #128C7E;
-}
-
-#cartItemCount {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 5px 8px;
-    font-size: 12px;
-}
-
 /* Estilos del carrito */
 .cart {
     background-color: white;
@@ -184,4 +240,37 @@ header {
 
 #checkoutBtn:hover {
     background-color: #0e7a6d;
+}
+
+/* Ocultar el menú móvil en pantallas grandes */
+.menu-container {
+    display: none;
+    position: relative;
+}
+
+/* En móviles ocultar la barra de categorías y mostrar el menú */
+@media (max-width: 768px) {
+     #cartIconContainer {
+        display: none;
+    }
+    header h1 {
+        font: size 1.01rem;
+    }
+    .category-menu {
+        display: none;
+    }
+
+    .menu-container {
+        display: block;
+    }
+
+    /* Menú desplegable */
+    .dropdown-menu {
+        display: block;
+        left: 5%;
+        top: 45px;
+        background-color: #f8f7f7;
+        width: 180px;
+        z-index: 10;
+    }
 }
