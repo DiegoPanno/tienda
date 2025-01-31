@@ -98,6 +98,33 @@ function addToCart(product) {
     updateCartItemCount();
 }
 
+
+// Función para agregar productos al carrito y mostrar el toast
+function addToCart(product) {
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);
+
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    total += product.price;
+    updateCart();
+    updateCartItemCount();
+    
+    // Mostrar el toast al agregar producto
+    showToast();
+}
+
+// Función para mostrar el Toast de Bootstrap
+function showToast() {
+    let toastElement = document.getElementById('liveToast');
+    let toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
+
+
 // Función para actualizar el contador de artículos en el carrito
 function updateCartItemCount() {
     const cartItemCount = document.getElementById('cartItemCount');
@@ -200,3 +227,22 @@ function finalizarCompra() {
 
     window.open(url, "_blank");
 }
+
+
+function saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("total", total);
+}
+
+function loadCartFromLocalStorage() {
+    const savedCart = localStorage.getItem("cart");
+    const savedTotal = localStorage.getItem("total");
+
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        total = parseFloat(savedTotal) || 0;
+        updateCart();
+        updateCartItemCount();
+    }
+}
+
