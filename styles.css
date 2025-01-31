@@ -264,6 +264,11 @@ header h1 {
 
 /* En móviles ocultar la barra de categorías y mostrar el menú */
 @media (max-width: 768px) {
+    body {
+        background-image: url('img/fondoWhatApp.jpg');
+    }
+
+
     #cartIconContainer {
         display: none;
     }
