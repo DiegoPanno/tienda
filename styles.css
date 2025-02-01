@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ECE5DD; /* Color de fondo de WhatsApp */
+    background-color: #bebbb8; /* Color de fondo de WhatsApp */
     margin: 0;
     padding: 0;
     color: #3C3C3C;
@@ -109,8 +109,10 @@ header h1 {
 }
 
 /* Estilo de los botones de categoría */
+/* Barra de categorías */
 .category-menu {
     background-color: white;
+    top: 80px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -119,7 +121,10 @@ header h1 {
     border-radius: 10px;
     margin: 15px auto;
     width: fit-content;
+    /* Asegura que la barra de categorías esté encima del header */
+    position: relative;
 }
+
 
 .category-menu button {
     background-color: #25D366; /* Verde principal de WhatsApp */
