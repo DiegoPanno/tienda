@@ -106,6 +106,7 @@ function addToCart(product) {
   updateCart();
   updateCartItemCount();
   showToast();
+  saveCartToLocalStorage(); // ← 📦 guardamos el carrito
 }
 
 
@@ -201,9 +202,7 @@ function removeProduct(productId) {
 // Finalizar compra
 function finalizarCompra() {
   if (cart.length === 0) {
-    alert(
-      "Tu carrito está vacío. Agrega productos antes de finalizar la compra."
-    );
+    alert("Tu carrito está vacío. Agrega productos antes de finalizar la compra.");
     return;
   }
 
@@ -220,12 +219,18 @@ function finalizarCompra() {
   mensaje += "📩 Por favor, contáctame para confirmar el pedido.";
 
   const phoneNumber = "542236364740";
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-    mensaje
-  )}`;
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 
   window.open(url, "_blank");
+
+  // ✅ Vaciar el carrito después de enviar el pedido
+  cart = [];
+  total = 0;
+  updateCart();
+  updateCartItemCount();
+  saveCartToLocalStorage();
 }
+
 
 // Guardar carrito en localStorage
 function saveCartToLocalStorage() {
