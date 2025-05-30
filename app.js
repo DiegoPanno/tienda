@@ -184,7 +184,7 @@ function finalizarCompra() {
     mensaje += `💰 *Total general:* $${total.toFixed(2)}\n\n`;
     mensaje += "📩 Por favor, contáctame para confirmar el pedido.";
 
-    const phoneNumber = "542236764618";
+    const phoneNumber = "542236364740";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
