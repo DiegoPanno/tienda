@@ -145,9 +145,12 @@ header h1 {
 .product-list {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     padding: 20px;
-    margin-top: 80px; /* Ajuste para que los productos no se oculten bajo el header */
+    margin-top: 80px;
+    margin-left: 10%;
+    
 }
 
 /* Estilo de cada producto */
