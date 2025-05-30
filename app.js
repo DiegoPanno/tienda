@@ -64,12 +64,22 @@ function displayProducts(filteredProducts) {
 
 // Función para filtrar productos por categoría
 function filterProducts(category) {
-  const filtered =
-    category === "all"
-      ? products
-      : products.filter((product) => product.category === category);
+  const filtered = category === 'all'
+    ? products
+    : products.filter(product => product.category === category);
+
   displayProducts(filtered);
+
+  const productList = document.getElementById('productList');
+  if (window.innerWidth <= 768 && productList) {
+    productList.style.display = 'block';
+  }
+
+  // Ocultar mensaje inicial si existe
+  const bienvenida = document.getElementById('inicioMobileMsg');
+  if (bienvenida) bienvenida.style.display = 'none';
 }
+
 
 // Función para agregar productos al carrito y mostrar el toast
 function addToCart(product) {
@@ -260,10 +270,19 @@ cartIcon.addEventListener("click", function () {
 });
 
 // Llamar funciones principales al cargar la página
-window.onload = () => {
-  fetchProducts();
+window.onload = async () => {
+  await fetchProducts(); // espera que se carguen los productos
   loadCartFromLocalStorage();
+
+  // Ocultar productos al inicio si está en pantalla móvil
+  if (window.innerWidth <= 768) {
+    const productList = document.getElementById('productList');
+    if (productList) {
+      productList.style.display = 'none';
+    }
+  }
 };
+
 
 // Hacer accesibles estas funciones al HTML
 window.filterProducts = filterProducts;

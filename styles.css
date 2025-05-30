@@ -238,7 +238,10 @@ header h1 {
 
 /*Alert toast*/
 
-
+.mobile-welcome {
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
 
 
 /* Botón de finalizar compra */
@@ -298,4 +301,11 @@ header h1 {
         z-index: 10;
        
     }
+}
+
+@media (min-width: 769px) {
+  .mobile-welcome {
+    display: none;
+    
+  }
 }
