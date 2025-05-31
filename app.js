@@ -19,7 +19,7 @@ async function fetchProducts() {
           name: data.titulo || "Sin nombre",
           price: Math.round(data.precioVenta) || 0,
           category: data.categoria || "Sin categoría",
-          image: data.imagenUrl || "img/logo-tienda.png",
+          image: data.imagenUrl || "img/logo-tienda.jpeg",
           stock: data.stock ?? 0, // ⚠️ importante traer el stock
         };
       })
