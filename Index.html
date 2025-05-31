@@ -1,102 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta
-      name="description"
-      content="Tienda Saludable ofrece una amplia variedad de productos naturales y veganos sin TACC para un estilo de vida saludable."
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda Libre de Gluten en Mar del Plata. Productos saludables y sin TACC. Comprá online o visitanos en 9 de Julio 2957." />
+    <meta name="keywords" content="sin gluten, sin TACC, Mar del Plata, tienda saludable, productos saludables, alimentos sin gluten, alimentos naturales, panificados, harinas, cereales, snacks saludables" />
+    <meta name="author" content="Tienda Libre de Gluten" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Tienda Libre de Gluten | Productos sin TACC en Mar del Plata" />
+    <meta property="og:description" content="Descubrí productos saludables, sin TACC y naturales en Mar del Plata. Pedí online o visitanos en 9 de Julio 2957." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tiendacarro.netlify.app/" />
+    <meta property="og:image" content="https://tiendacarro.netlify.app/img/logo-tienda.png" />
+    
+   
     <link rel="icon" type="image" href="./img/logo-tienda.png" />
-    <title>Tienda libre de gluten</title>
+    <title>Tienda Libre de Gluten</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Enlace al archivo CSS -->
-    <!-- Agregar Bootstrap Icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap JS (necesario para el Toast) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SEO Local Business (Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Tienda Libre de Gluten",
+      "image": "https://tiendacarro.netlify.app/img/logo-tienda.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 de Julio 2957",
+        "addressLocality": "Mar del Plata",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "7600",
+        "addressCountry": "AR"
+      },
+      "telephone": "+54 223 636-4740",
+      "url": "https://tiendacarro.netlify.app/",
+      "sameAs": [
+        "https://www.instagram.com/tienda.libre.de.gluten/"
+      ],
+      "description": "Tienda Libre de Gluten: productos saludables y sin TACC en Mar del Plata. Pedí online o vení a nuestro local en 9 de Julio 2957."
+    }
+    </script>
   </head>
+
   <body>
     <header>
       <!-- Menú móvil con tres puntos -->
       <div class="menu-container">
         <i class="bi bi-three-dots-vertical" id="menuIcon"></i>
         <div class="dropdown-menu" id="dropdownMenu">
-          <button onclick="filterProducts('Panificados/Galletitas')">
-            Panificados/Galletitas
-          </button>
-          <button onclick="filterProducts('Harinas/Premezclas/Rebozadores')">
-            Harinas/Premezclas/Rebozadores
-          </button>
-          <button onclick="filterProducts('Cereales/Legumbres/Semillas')">
-            Cereales/Legumbres/Semillas
-          </button>
-          <button onclick="filterProducts('Congelados/Refrigerados')">
-            Congelados/Refrigerados
-          </button>
-          <button onclick="filterProducts('Snack/Alfajores/Golosinas')">
-            Snack/Alfajores/Golosinas
-          </button>
+          <button onclick="filterProducts('Panificados/Galletitas')">Panificados/Galletitas</button>
+          <button onclick="filterProducts('Harinas/Premezclas/Rebozadores')">Harinas/Premezclas/Rebozadores</button>
+          <button onclick="filterProducts('Cereales/Legumbres/Semillas')">Cereales/Legumbres/Semillas</button>
+          <button onclick="filterProducts('Congelados/Refrigerados')">Congelados/Refrigerados</button>
+          <button onclick="filterProducts('Snack/Alfajores/Golosinas')">Snack/Alfajores/Golosinas</button>
           <button onclick="filterProducts('Pastas')">Pastas</button>
           <button onclick="filterProducts('Otros')">Otros</button>
           <button onclick="filterProducts('all')">Todas</button>
         </div>
       </div>
-      <h1>Tienda libre de gluten</h1>
-      <!-- Contenedor del carrito con el ícono y el contador -->
-      <div
-        id="cartIconContainer"
-        style="position: relative; display: inline-block"
-      >
-        <i
-          class="bi bi-basket3"
-          style="font-size: 30px; color: white"
-          id="cartIcon"
-        ></i>
-        <!-- Ícono de carrito blanco -->
+      <h1>Tienda Libre de Gluten</h1>
+      <div id="cartIconContainer" style="position: relative; display: inline-block">
+        <i class="bi bi-basket3" style="font-size: 30px; color: white" id="cartIcon"></i>
         <span id="cartItemCount">0</span>
-        <!-- Contador con fondo rojo y texto blanco -->
       </div>
     </header>
 
-    <!-- Barra de categorías visible solo en pantallas grandes -->
     <div class="category-menu">
-      <button onclick="filterProducts('Panificados/Galletitas')">
-        Panificados/Galletitas
-      </button>
-      <button onclick="filterProducts('Harinas/Premezclas/Rebozadores')">
-        Harinas/Premezclas/Rebozadores
-      </button>
-      <button onclick="filterProducts('Cereales/Legumbres/Semillas')">
-        Cereales/Legumbres/Semillas
-      </button>
-      <button onclick="filterProducts('Congelados/Refrigerados')">
-        Congelados/Refrigerados
-      </button>
-      <button onclick="filterProducts('Snack/Alfajores/Golosinas')">
-        Snack/Alfajores/Golosinas
-      </button>
+      <button onclick="filterProducts('Panificados/Galletitas')">Panificados/Galletitas</button>
+      <button onclick="filterProducts('Harinas/Premezclas/Rebozadores')">Harinas/Premezclas/Rebozadores</button>
+      <button onclick="filterProducts('Cereales/Legumbres/Semillas')">Cereales/Legumbres/Semillas</button>
+      <button onclick="filterProducts('Congelados/Refrigerados')">Congelados/Refrigerados</button>
+      <button onclick="filterProducts('Snack/Alfajores/Golosinas')">Snack/Alfajores/Golosinas</button>
       <button onclick="filterProducts('Pastas')">Pastas</button>
       <button onclick="filterProducts('Otros')">Otros</button>
       <button onclick="filterProducts('all')">Todas</button>
     </div>
 
-    <!-- Contenedor de productos -->
     <div class="product-list" id="productList">
       <!-- Los productos se cargarán aquí dinámicamente -->
     </div>
+
     <div id="inicioMobileMsg" class="mobile-welcome">
       <p style="text-align: center; padding: 1rem; font-size: medium">
-        📱 <strong>Elegí una categoría</strong> del menú para ver los
-        productos.<br /><br />
+        📱 <strong>Elegí una categoría</strong> del menú para ver los productos.<br /><br />
         🛒 <strong>Cómo comprar:</strong><br />
         1. Elegí la categoría<br />
         2. Agregá productos al carrito<br />
@@ -105,42 +95,26 @@
       </p>
     </div>
 
-    <!-- Carrito -->
     <div class="cartIconContainer">
       <div class="cart" id="cartSection">
         <h3>Carrito</h3>
-        <ul id="cartItems">
-          <!-- Los productos agregados aparecerán aquí -->
-        </ul>
-        <p>
-          <strong>Total: $<span id="total">0</span></strong>
-        </p>
-        <button id="checkoutBtn" onclick="finalizarCompra()">
-          ¡Hacer pedido a la tienda!
-        </button>
+        <ul id="cartItems"></ul>
+        <p><strong>Total: $<span id="total">0</span></strong></p>
+        <button id="checkoutBtn" onclick="finalizarCompra()">¡Hacer pedido a la tienda!</button>
       </div>
     </div>
 
-    <!-- Contenedor del Toast -->
-    <div
-      id="toastContainer"
-      class="toast-container position-fixed bottom-0 end-0 p-3"
-    >
-      <div
-        id="liveToast"
-        class="toast"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
+    <footer style="text-align: center; padding: 1rem;">
+      <p><strong>Tienda Libre de Gluten</strong> - 9 de Julio 2957, Mar del Plata, Buenos Aires, Argentina.</p>
+      <p>📞 <a href="tel:+542236364740">223 636-4740</a> | 📸 Instagram: <a href="https://www.instagram.com/tienda.libre.de.gluten/" target="_blank">@tienda.libre.de.gluten</a></p>
+      <p>🌐 <a href="https://tiendacarro.netlify.app/" target="_blank">tiendacarro.netlify.app</a></p>
+    </footer>
+
+    <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
           <div class="toast-body">✅ ¡Producto agregado al carrito!</div>
-          <button
-            type="button"
-            class="btn-close me-2 m-auto"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
     </div>
