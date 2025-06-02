@@ -32,6 +32,7 @@ header h1 {
     text-align: left;
 }
 
+
 /* Contenedor del carrito siempre alineado a la derecha */
 #cartIconContainer {
     position: absolute;
@@ -163,6 +164,12 @@ header h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 220px;
     text-align: center;
+    height: 420px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .product img {
