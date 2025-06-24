@@ -42,7 +42,7 @@ function displayProducts(filteredProducts) {
 
     const productImg = document.createElement("img");
     productImg.src = product.image;
-    productImg.onerror = () => (productImg.src = "img/logo-tienda.png");
+    productImg.onerror = () => (productImg.src = "img/logo-tienda.jpeg");
     productDiv.appendChild(productImg);
 
     const productName = document.createElement("h4");
